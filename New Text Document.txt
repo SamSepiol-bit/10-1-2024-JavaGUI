@@ -1,0 +1,61 @@
+package guibasics;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+/**
+ *
+ * @author hnd
+ */
+public class LoginFOrm {
+    public static void main(String[] args) {
+        final JFrame frame = new JFrame();
+        
+        JLabel labelUsername = new JLabel("Username");
+        labelUsername.setBounds(50,100,100,30);
+        
+        JLabel labelPassword = new JLabel("Passworde");
+        labelPassword.setBounds(50,150,100,30);
+        
+        final JTextField txtUsername = new JTextField();
+        txtUsername.setBounds(150,100,150,30);
+        
+        final JPasswordField psw = new JPasswordField();
+        psw.setBounds(150,150,150,30);
+        
+        JButton btn = new JButton("Login");
+        btn.setBounds(150,200,80,30);
+        
+        btn.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String username = txtUsername.getText();
+                String password = new String(psw.getPassword());
+                
+                if (username.equals("admin") && password.equals("1234")){
+                    JOptionPane.showMessageDialog(frame, "Login Successfull");
+                    
+                }else{
+                    JOptionPane.showMessageDialog(frame, "Invalid username or password");
+                }
+            }
+        });
+        frame.add(labelUsername);
+        frame.add(labelPassword);
+        frame.add(txtUsername);
+        frame.add(psw);
+        frame.add(btn);
+        
+        frame.setSize(400,400);
+        frame.setLayout(null);
+        frame.setVisible(true);
+        
+    }
+    
+}

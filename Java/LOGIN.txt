@@ -1,0 +1,50 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class LoginForm {
+    
+    public static void main(String[] args) {
+        // Create the frame
+        JFrame frame = new JFrame("Login Form");
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+        
+        // Create username and password fields
+        JLabel userLabel = new JLabel("Username:");
+        JTextField userField = new JTextField(15);
+        
+        JLabel passwordLabel = new JLabel("Password:");
+        JPasswordField passwordField = new JPasswordField(15);
+        
+        // Create the login button
+        JButton loginButton = new JButton("Login");
+        
+        // Add action listener to the button
+        loginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String username = userField.getText();
+                String password = new String(passwordField.getPassword());
+                
+                // Check credentials
+                if (username.equals("admin") && password.equals("1234")) {
+                    JOptionPane.showMessageDialog(frame, "Login Successful");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Invalid username or password");
+                }
+            }
+        });
+        
+        // Add components to the frame
+        frame.add(userLabel);
+        frame.add(userField);
+        frame.add(passwordLabel);
+        frame.add(passwordField);
+        frame.add(loginButton);
+        
+        // Set frame visibility
+        frame.setVisible(true);
+    }
+}
